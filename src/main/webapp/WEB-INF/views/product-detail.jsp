@@ -16,6 +16,10 @@
             <nav class="nav">
                 <a href="${pageContext.request.contextPath}/home">Trang chủ</a>
                 <a href="${pageContext.request.contextPath}/product">Sản phẩm</a>
+                <c:if test="${not empty sessionScope.loggedUsername}">
+                    <a href="${pageContext.request.contextPath}/profile">Hồ sơ</a>
+                    <a href="${pageContext.request.contextPath}/logout">Đăng xuất</a>
+                </c:if>
             </nav>
         </div>
     </header>

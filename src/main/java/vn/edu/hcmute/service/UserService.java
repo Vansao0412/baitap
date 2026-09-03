@@ -21,6 +21,35 @@ public class UserService {
         return userDAO.authenticate(username.trim(), password);
     }
 
+    public Optional<User> findById(int userId) {
+        return userDAO.findById(userId);
+    }
+
+    public Optional<User> findByUsername(String username) {
+        if (username == null || username.isBlank()) return Optional.empty();
+        return userDAO.findByUsername(username.trim());
+    }
+
+    public User updateProfile(int userId, String fullName, String phone, String image) {
+        User user = userDAO.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy tài khoản"));
+        fullName = normalize(fullName);
+        phone = normalize(phone);
+        image = normalize(image);
+
+        if (fullName.isEmpty() || fullName.length() > 100)
+            throw new IllegalArgumentException("Họ tên không được để trống và tối đa 100 ký tự");
+        if (!phone.isEmpty() && !phone.matches("[0-9+() .-]{7,20}"))
+            throw new IllegalArgumentException("Số điện thoại không hợp lệ");
+        if (image.length() > 500)
+            throw new IllegalArgumentException("Tên ảnh quá dài");
+
+        user.setFullName(fullName);
+        user.setPhone(phone.isEmpty() ? null : phone);
+        user.setImage(image.isEmpty() ? null : image);
+        return userDAO.update(user);
+    }
+
     public User register(String fullName, String username, String email, String password, String confirmPassword) {
         fullName = normalize(fullName);
         username = normalize(username);

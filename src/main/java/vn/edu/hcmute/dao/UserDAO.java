@@ -54,6 +54,13 @@ public class UserDAO implements IUserDao {
     }
 
     @Override
+    public Optional<User> findById(int userId) {
+        try (EntityManager entityManager = createEntityManager()) {
+            return Optional.ofNullable(entityManager.find(User.class, userId));
+        }
+    }
+
+    @Override
     public Optional<User> findByUsername(String username) {
         return findOne("SELECT u FROM User u WHERE LOWER(u.username) = LOWER(:value)", username);
     }

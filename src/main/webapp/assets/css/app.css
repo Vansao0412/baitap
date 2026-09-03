@@ -546,6 +546,45 @@ tbody tr:hover {
     border-radius:12px;
     background:#eee;
 }
+.profile-card {
+    max-width:760px;
+    margin:0 auto;
+    padding:28px;
+}
+.profile-avatar-wrap {
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding-bottom:24px;
+    margin-bottom:24px;
+    border-bottom:1px solid var(--line);
+}
+.profile-avatar-wrap h2 {
+    margin:0 0 5px;
+    font-size:21px;
+}
+.profile-username {
+    margin:0;
+    color:var(--muted);
+}
+.profile-avatar {
+    width:82px;
+    height:82px;
+    border-radius:50%;
+    object-fit:cover;
+    background:#eef2ff;
+    border:1px solid var(--line);
+}
+.profile-avatar-empty {
+    display:grid;
+    place-items:center;
+    color:var(--primary);
+    font-size:30px;
+    font-weight:800;
+}
+.profile-form .field {
+    margin-bottom:4px;
+}
 .result-page {
     min-height:100vh;
     display:grid;
@@ -625,6 +664,9 @@ tbody tr:hover {
     }
     .detail-grid{
         grid-template-columns:1fr
+    }
+    .profile-card{
+        padding:20px
     }
     .site-header-inner{
         align-items:flex-start;

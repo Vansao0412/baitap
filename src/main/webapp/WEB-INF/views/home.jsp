@@ -20,9 +20,11 @@
                 <c:choose>
                     <c:when test="${sessionScope.loggedRole eq 'ADMIN'}">
                         <a href="${pageContext.request.contextPath}/admin/products">Quản trị</a>
+                        <a href="${pageContext.request.contextPath}/profile">Hồ sơ</a>
                         <a href="${pageContext.request.contextPath}/logout">Đăng xuất</a>
                     </c:when>
                     <c:when test="${not empty sessionScope.loggedUsername}">
+                        <a href="${pageContext.request.contextPath}/profile">Hồ sơ</a>
                         <a href="${pageContext.request.contextPath}/logout">Đăng xuất</a>
                     </c:when>
                     <c:otherwise>

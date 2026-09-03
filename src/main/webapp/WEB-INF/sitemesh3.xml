@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+    <decorator-selector>org.sitemesh.config.PathBasedDecoratorSelector</decorator-selector>
+    <decorator-prefix>/WEB-INF/decorators/</decorator-prefix>
+    <mapping path="/profile" decorator="default.jsp" />
+</sitemesh>

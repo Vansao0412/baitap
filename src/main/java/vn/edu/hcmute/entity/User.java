@@ -35,6 +35,12 @@ public class User implements Serializable {
     @Column(name = "Email", nullable = false, unique = true, length = 100)
     private String email;
 
+    @Column(name = "Phone", length = 20)
+    private String phone;
+
+    @Column(name = "Image", length = 500)
+    private String image;
+
     @Column(name = "CreatedAt", nullable = false)
     private LocalDateTime createdAt;
 
@@ -82,6 +88,10 @@ public class User implements Serializable {
     public void setFullName(String fullName) { this.fullName = fullName; }
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
+    public String getImage() { return image; }
+    public void setImage(String image) { this.image = image; }
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
     public boolean isActive() { return active; }

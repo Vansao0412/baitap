@@ -50,6 +50,7 @@ public class LoginServlet extends HttpServlet {
             request.changeSessionId();
             session.setAttribute("loggedUsername", user.getUsername());
             session.setAttribute("loggedRole", user.getRole());
+            session.setAttribute("loggedUserId", user.getUserId());
 
             if (User.ROLE_ADMIN.equals(user.getRole())) {
                 response.sendRedirect(request.getContextPath() + "/admin/products");
