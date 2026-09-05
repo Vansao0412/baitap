@@ -1,30 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><c:out value="${product.productName}" /></title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/app.css">
-</head>
-<body>
-    <header class="site-header">
-        <div class="site-header-inner">
-            <a class="brand" href="${pageContext.request.contextPath}/home">Cửa hàng</a>
-            <nav class="nav">
-                <a href="${pageContext.request.contextPath}/home">Trang chủ</a>
-                <a href="${pageContext.request.contextPath}/product">Sản phẩm</a>
-                <c:if test="${not empty sessionScope.loggedUsername}">
-                    <a href="${pageContext.request.contextPath}/profile">Hồ sơ</a>
-                    <a href="${pageContext.request.contextPath}/logout">Đăng xuất</a>
-                </c:if>
-            </nav>
-        </div>
-    </header>
-
-    <main class="container">
+<head><title><c:out value="${product.productName}" /></title></head>
+<main class="container">
         <p>
             <a href="${pageContext.request.contextPath}/product">Quay lại sản phẩm</a>
         </p>
@@ -65,6 +43,4 @@
                 </p>
             </div>
         </section>
-    </main>
-</body>
-</html>
+</main>
