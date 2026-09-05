@@ -43,6 +43,12 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
+        if (username == null || username.isBlank() || password == null || password.isBlank()) {
+            request.setAttribute("error", "Tên đăng nhập và mật khẩu không được để trống");
+            request.getRequestDispatcher("/WEB-INF/views/error.jsp").forward(request, response);
+            return;
+        }
+
         User user = userService.login(username, password).orElse(null);
 
         if (user != null) {
